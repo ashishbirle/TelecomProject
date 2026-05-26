@@ -18,7 +18,7 @@ spark.conf.set("spark.sql.autoBroadcastJoinThreshold", -1)  # we control broadca
 # Load + Repartition Early
 # ----------------------------
 
-df = spark.read.option("header", True).option("inferSchema", True).csv(r"C:\Users\Ashish Birle\OneDrive\Desktop\Exponent IT\Data Engineering\Telecom Project Files\telecom data for pyspark.csv", header=True, inferSchema=True)
+df = spark.read.option("header", True).option("inferSchema", True).csv(r"C:\Users\Ashish Birle\OneDrive\Desktop\Exponent IT\Data Engineering\Telecom Project Files\telecom_data_for_pyspark.csv", header=True, inferSchema=True)
 
 df = df.repartition("Date", "Cell ID")  # critical for large telecom datasets
 
@@ -44,7 +44,7 @@ numeric_cols = [
     "Cell_Availabililty", "Session_Setup_Success_Rate", "VoLTE_Drop_Rate_pct",
     "Handover_Success_Rate_pct", "Traffic_24Hrs_GB", "DL_PRB_utilizationpct",
     "CQI", "IP_Throughput_Mbps", "RRC_Connected_Users",
-    "Peak_RRC_Connected", "Average_TA", "Mute_Call_Ratepct"
+    "Peak_RRC_Connected", "Average_TA", "Mute_Call_Ratepct", "total_users"
 ]
 
 for col in numeric_cols:
